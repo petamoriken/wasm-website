@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="Portability - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/docs/portability/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Fdocs%2Fportability%2F/opengraph/" />
+    <title>Portability - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-9 col-pop"><h1 id="portability">Portability</h1>
+
+<p>WebAssembly’s <a href="../binary-encoding/">binary format</a> is designed to be executable
+efficiently on a variety of operating systems and instruction set architectures,
+<a href="../web/">on the Web</a> and <a href="../non-web/">off the Web</a>.</p>
+
+<h2 id="assumptions-for-efficient-execution">Assumptions for Efficient Execution</h2>
+
+<p>Execution environments which, despite
+<a href="../nondeterminism/">limited, local, nondeterminism</a>, don’t offer
+the following characteristics may be able to execute WebAssembly modules
+nonetheless. In some cases they may have to emulate behavior that the host
+hardware or operating system don’t offer so that WebAssembly modules execute
+<em>as-if</em> the behavior were supported. This sometimes will lead to poor
+performance.</p>
+
+<p>As WebAssembly’s standardization goes forward we expect to formalize these
+requirements, and how WebAssembly will adapt to new platforms that didn’t
+necessarily exist when WebAssembly was first designed.</p>
+
+<p>WebAssembly portability assumes that execution environments offer the following
+characteristics:</p>
+
+<ul>
+  <li>8-bit bytes.</li>
+  <li>Addressable at a byte memory granularity.</li>
+  <li>Support unaligned memory accesses or reliable trapping that allows software
+emulation thereof.</li>
+  <li>Two’s complement signed integers in 32 bits and optionally 64 bits.</li>
+  <li>IEEE 754-2019 32-bit and 64-bit floating point, except for
+<a href="https://webassembly.github.io/spec/core/exec/numerics.html#floating-point-operations">a few exceptions</a>.</li>
+  <li>Little-endian byte ordering.</li>
+  <li>Memory regions which can be efficiently addressed with 32-bit
+pointers or indices.</li>
+  <li>wasm64 additionally supports linear memory bigger than
+<a href="https://github.com/WebAssembly/memory64/blob/main/proposals/memory64/Overview.md">4 GiB with 64-bit pointers or indices</a>.</li>
+  <li>Enforce secure isolation between WebAssembly modules and other modules or
+processes executing on the same machine.</li>
+  <li>An execution environment which offers forward progress guarantees to all
+threads of execution (even when executing in a non-parallel manner).</li>
+  <li>Availability of lock-free atomic memory operators, when naturally aligned, for
+8- 16- and 32-bit accesses. At a minimum this must include an atomic
+compare-and-exchange operator (or equivalent load-linked/store-conditional).</li>
+  <li>wasm64 additionally requires lock-free atomic memory operators, when naturally
+aligned, for 64-bit accesses.</li>
+</ul>
+
+<h2 id="api">API</h2>
+
+<p>WebAssembly does not specify any APIs or syscalls, only an 
+<a href="../modules/">import mechanism</a> where the set of available imports is defined
+by the host environment. In a <a href="../web/">Web</a> environment, functionality is
+accessed through the Web APIs defined by the
+<a href="https://en.wikipedia.org/wiki/Open_Web_Platform">Web Platform</a>.
+<a href="../non-web/">Non-Web</a> environments can choose to implement standard Web APIs,
+standard non-Web APIs (e.g. POSIX), or invent their own.</p>
+
+<h2 id="source-level">Source-level</h2>
+
+<p>Portability at the C/C++ level can be achieved by programming to
+a standard API (e.g., POSIX) and relying on the compiler and/or libraries to map
+the standard interface to the host environment’s available imports either at
+compile-time (via <code class="highlighter-rouge">#ifdef</code>) or run-time (via <a href="https://github.com/WebAssembly/design/issues/1280">feature detection</a>
+and dynamic <a href="../modules/">loading</a>/<a href="../dynamic-linking/">linking</a>).</p>
+
+</div>
+      <div class="col-xs-12 col-lg-3">
+        <h6 class="side-title">Documentation</h6>
+        <nav class="side-nav">
+           
+          <a class="side-nav-item" href="/docs/faq/">FAQ</a>
+          
+          <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
+          
+          <a class="side-nav-item" href="/docs/use-cases/">Use Cases</a>
+          
+          <a class="side-nav-item" href="/docs/portability/">Portability</a>
+          
+          <a class="side-nav-item" href="/docs/security/">Security</a>
+          
+          <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
+          
+          <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
+          
+          <a class="side-nav-item" href="/docs/tooling/">Tooling support</a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+

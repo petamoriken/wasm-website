@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="Web Embedding - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/docs/web/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Fdocs%2Fweb%2F/opengraph/" />
+    <title>Web Embedding - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-9 col-pop"><h1 id="web-embedding">Web Embedding</h1>
+
+<p>Unsurprisingly, one of WebAssembly’s primary purposes is to run on the Web,
+for example embedded in Web browsers (though this is
+<a href="../non-web/">not its only purpose</a>).</p>
+
+<p>This means integrating with the Web ecosystem, leveraging Web APIs, supporting
+the Web’s security model, preserving the Web’s portability, and designing in
+room for evolutionary development. Many of these goals are clearly
+reflected in WebAssembly’s <a href="../high-level-goals/">high-level goals</a>. In
+particular, WebAssembly MVP will be no looser from a security point of view
+than if the module was JavaScript.</p>
+
+<p>More concretely, the following is a list of points of contact between WebAssembly
+and the rest of the Web platform that have been considered:</p>
+
+<h2 id="javascript-api">JavaScript API</h2>
+
+<p>A <a href="../js/">JavaScript API</a> is provided which allows JavaScript to compile
+WebAssembly modules, perform limited reflection on compiled modules, store
+and retrieve compiled modules from offline storage, instantiate compiled modules
+with JavaScript imports, call the exported functions of instantiated modules,
+alias the exported memory of instantiated modules, etc.</p>
+
+<p>The Web embedding includes additional methods useful in that context.
+In non-web embeddings, these APIs may not be present.</p>
+
+<h3 id="additional-web-embedding-api">Additional Web Embedding API</h3>
+
+<p>This section historically contained the description of WebAssembly’s Web API.</p>
+
+<p>For the current description, see the <a href="https://webassembly.github.io/spec/web-api/index.html">normative documentation</a>.</p>
+
+<h2 id="modules">Modules</h2>
+
+<p>WebAssembly’s <a href="../modules/">modules</a> allow for natural <a href="https://github.com/WebAssembly/esm-integration">integration with
+the ES6 module system</a>.</p>
+
+<h2 id="security">Security</h2>
+
+<p>WebAssembly’s <a href="../security/">security</a> model depend on the
+<a href="https://www.w3.org/Security/wiki/Same_Origin_Policy">same-origin policy</a>, with <a href="https://www.w3.org/TR/cors/">cross-origin resource sharing (CORS)</a> and
+<a href="https://www.w3.org/TR/SRI/">subresource integrity</a> to enable distribution through content
+distribution networks and to implement <a href="../dynamic-linking/">dynamic linking</a>.</p>
+
+<h2 id="webidl">WebIDL</h2>
+
+<p>There are various proposals in flight which may support future work toward
+WebIDL bindings for WebAssembly, including <a href="https://github.com/WebAssembly/js-string-builtins/">JS String builtins</a>,
+<a href="https://github.com/tc39/proposal-source-phase-imports">source-phase imports</a>, and the <a href="https://github.com/WebAssembly/component-model">component model</a>.</p>
+
+<p>There are also tools to provide this functionality today by generating
+JS wrapper code, for example <a href="https://emscripten.org/docs/porting/connecting_cpp_and_javascript/WebIDL-Binder.html">Emscripten’s WebIDL Binder</a>,
+<a href="https://github.com/rustwasm/wasm-webidl-bindings">the wasm-webidl-bindings Rust crate</a>, and
+<a href="https://github.com/bytecodealliance/jco/blob/main/docs/src/transpiling.md#experimental-webidl-imports">jco’s experimental WebIDL Imports support</a>.</p>
+
+</div>
+      <div class="col-xs-12 col-lg-3">
+        <h6 class="side-title">Documentation</h6>
+        <nav class="side-nav">
+           
+          <a class="side-nav-item" href="/docs/faq/">FAQ</a>
+          
+          <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
+          
+          <a class="side-nav-item" href="/docs/use-cases/">Use Cases</a>
+          
+          <a class="side-nav-item" href="/docs/portability/">Portability</a>
+          
+          <a class="side-nav-item" href="/docs/security/">Security</a>
+          
+          <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
+          
+          <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
+          
+          <a class="side-nav-item" href="/docs/tooling/">Tooling support</a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+

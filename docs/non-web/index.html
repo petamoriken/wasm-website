@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="Non-Web Embeddings - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/docs/non-web/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Fdocs%2Fnon-web%2F/opengraph/" />
+    <title>Non-Web Embeddings - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-9 col-pop"><h1 id="non-web-embeddings">Non-Web Embeddings</h1>
+
+<p>While WebAssembly is designed to run <a href="../web/">on the Web</a>, it is
+also desirable for it to be able to execute well in other environments,
+including everything from minimal shells for testing to full-blown
+application environments e.g. on servers in datacenters, on IoT devices,
+or mobile/desktop apps. It may even be desirable to execute WebAssembly
+embedded within larger programs.</p>
+
+<p>Non-Web environments may provide different APIs than Web
+environments.</p>
+
+<p>Non-Web environments include JavaScript VMs (e.g. <a href="https://nodejs.org">node.js</a>), however
+WebAssembly is also capable of being executed without a JavaScript VM present.
+The table in the <a href="https://webassembly.org/features/">features page</a> of the website lists several such
+implementations.</p>
+
+<p><a href="https://wasi.dev">WASI</a> is a set of standards-track APIs being developed by the <a href="https://github.com/WebAssembly/wasi">WASI Subgroup</a>
+intended for use in many environments, including in non-browser and non-JS
+engines.</p>
+
+<p>The WebAssembly spec itself will not try to define any large portable libc-like
+library. However, certain features that are core to WebAssembly semantics that
+are similar to functions found in native libc <em>would</em> be part of the core
+WebAssembly spec as primitive operators (e.g., the <code class="highlighter-rouge">memory.grow</code> operator, which
+is similar to the <code class="highlighter-rouge">sbrk</code> function on many systems, and in the future, perhaps
+operators supporting <code class="highlighter-rouge">dlopen</code> functionality).</p>
+
+<p>Where there is overlap between the Web and popular non-Web environments,
+shared specs could be proposed, but these would be separate from the WebAssembly
+spec. A symmetric example in JavaScript would be the in-progress 
+<a href="https://whatwg.github.io/loader">Loader</a> spec, which is proposed for both
+Web and node.js environments and is distinct from the JavaScript spec.</p>
+
+<p>However, for most cases it is expected that, to achieve portability at the
+source code level, communities would build libraries that mapped from a 
+source-level interface such as POSIX or SDL to the host environment’s builtin
+capabilities, either at build time or runtime, possibly making use of
+<a href="../feature-test/">feature testing</a>, <a href="../dynamic-linking/">dynamic linking</a>,
+static linking, or polyfilling.</p>
+
+<p>In general, by preserving spec layering, and the core WebAssembly spec
+independent of the host environment and linking specs, WebAssembly can be
+used as a portable binary format on many platforms, in many environments, for
+many use cases, bringing great benefits in portability, tooling and
+language-agnosticity.</p>
+
+</div>
+      <div class="col-xs-12 col-lg-3">
+        <h6 class="side-title">Documentation</h6>
+        <nav class="side-nav">
+           
+          <a class="side-nav-item" href="/docs/faq/">FAQ</a>
+          
+          <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
+          
+          <a class="side-nav-item" href="/docs/use-cases/">Use Cases</a>
+          
+          <a class="side-nav-item" href="/docs/portability/">Portability</a>
+          
+          <a class="side-nav-item" href="/docs/security/">Security</a>
+          
+          <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
+          
+          <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
+          
+          <a class="side-nav-item" href="/docs/tooling/">Tooling support</a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+

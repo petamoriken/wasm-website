@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="Feature Status - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/features/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Ffeatures%2F/opengraph/" />
+    <title>Feature Status - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container"><h1 id="feature-status">Feature Status</h1>
+
+<p>In November 2017, WebAssembly CG members representing four browsers, Chrome,
+Edge, Firefox, and WebKit, reached consensus that the design of the initial
+(MVP) WebAssembly API and binary format is complete to the extent that no
+further design work is possible without implementation experience and
+significant usage.</p>
+
+<p>After the initial release, WebAssembly has been gaining new features through the
+<a href="https://github.com/WebAssembly/meetings/blob/master/process/phases.md">standardization process</a>.
+For the complete list of current proposals and their respective stages, check
+out the
+<a href="https://github.com/WebAssembly/proposals"><code class="highlighter-rouge">WebAssembly/proposals</code> repo</a>.</p>
+
+<!-- Apache License 2.0, https://github.com/Remix-Design/remixicon -->
+<template id="support-symbol-yes">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Supported"><path class="svg-stroke" d="M10 15.2 19.2 6l1.4 1.4L10 18l-6.4-6.4L5 10.2Z" /></svg>
+</template>
+<template id="support-symbol-no">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Not supported"><path class="svg-stroke" d="m12 10.6 5-5 1.4 1.5-5 4.9 5 5-1.4 1.4-5-5-5 5L5.7 17l5-5-5-5 1.5-1.4z" /></svg>
+</template>
+<template id="support-symbol-flag">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Not supported by default"><path class="svg-stroke" d="M4 17v5H2V3h19.1a.5.5 0 0 1 .5.7L18 10l3.6 6.3a.5.5 0 0 1-.5.7H4zM4 5v10h14.6l-2.9-5 2.9-5H4z" /></svg>
+</template>
+<template id="support-symbol-unknown">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" aria-label="Unknown"><path class="svg-stroke" d="M24 38a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm0-34a12 12 0 0 1 12 12c0 4.3-1.5 6.6-5.3 9.8-3.9 3.3-4.7 4.8-4.7 8.2h-4c0-5 1.6-7.4 6-11.2 3.1-2.6 4-4 4-6.8a8 8 0 1 0-16 0v2h-4v-2A12 12 0 0 1 24 4z" /></svg>
+</template>
+
+<template id="support-symbol-loading">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-label="Loading"><circle fill="#ccc" cx="2" cy="12" r="2"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin=".1" /></circle><circle fill="#ccc" cx="10" cy="12" r="2"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin=".2" /></circle><circle fill="#ccc" cx="18" cy="12" r="2"><animate attributeName="opacity" dur="1s" values="0;1;0" repeatCount="indefinite" begin=".3" /></circle></svg>
+</template>
+
+<p>The table below aims to track implemented features in popular engines:</p>
+
+<div id="feature-support-scrollbox">
+  <table id="feature-support" aria-label="Status of implemented features in popular engines"></table>
+</div>
+<link rel="preload" href="/features.json" as="fetch" />
+
+<script src="/features.js"></script>
+
+<link rel="modulepreload" href="https://unpkg.com/wasm-feature-detect@1/dist/esm/index.js?v=1" />
+
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1/+esm" />
+
+<p>To detect supported features at runtime from JavaScript, check out the
+<a href="https://github.com/GoogleChromeLabs/wasm-feature-detect"><code class="highlighter-rouge">wasm-feature-detect</code> library</a>,
+which powers the “Your browser” column above.</p>
+</div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+

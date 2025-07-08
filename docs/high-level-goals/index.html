@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="WebAssembly High-Level Goals - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/docs/high-level-goals/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Fdocs%2Fhigh-level-goals%2F/opengraph/" />
+    <title>WebAssembly High-Level Goals - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-9 col-pop"><h1 id="webassembly-high-level-goals">WebAssembly High-Level Goals</h1>
+
+<ol>
+  <li>Define a <a href="../portability/">portable</a>, size- and load-time-efficient
+<a href="../mvp/#binary-format">binary format</a> to serve as a compilation target which
+can be compiled to execute at native speed by taking advantage of common
+hardware capabilities available on a wide range of platforms, including
+<a href="https://en.wikipedia.org/wiki/Mobile_device">mobile</a> and
+<a href="https://en.wikipedia.org/wiki/Internet_of_Things">IoT</a>.</li>
+  <li>Specify and implement incrementally:
+    <ul>
+      <li>develop new features as independent <a href="https://github.com/WebAssembly/proposals/">proposals</a>;</li>
+      <li>maintain <a href="https://webassembly.org/specs/">layering</a>, with a core spec focused on pure sandboxed
+computation, with host interactions factored out into higher
+specification layers;</li>
+      <li>preserve backwards compatibility;</li>
+      <li>prioritize new features according to feedback and experience; and</li>
+      <li>avoid biasing towards any one programming language family.</li>
+    </ul>
+  </li>
+  <li>Design to execute within and integrate well with the <em>existing</em>
+<a href="../web/">Web platform</a>:
+    <ul>
+      <li>maintain the versionless, <a href="../feature-test/">feature-tested</a> and backwards-compatible evolution story of the Web;</li>
+      <li>execute in the same semantic universe as JavaScript;</li>
+      <li>allow synchronous calls to and from JavaScript;</li>
+      <li>enforce the same-origin and permissions security policies;</li>
+      <li>access browser functionality through the same Web APIs that are accessible
+to JavaScript; and</li>
+      <li>define a human-editable text format that is convertible to and from the
+binary format, supporting View Source functionality.</li>
+    </ul>
+  </li>
+  <li>Design to support <a href="../non-web/">non-browser embeddings</a> as well.</li>
+  <li>Make a great platform:
+    <ul>
+      <li>promote <a href="https://webassembly.org/getting-started/developers-guide/">compilers and tools targeting WebAssembly</a>;</li>
+      <li>enable other useful <a href="../tooling/">tooling</a>;</li>
+      <li>maintain a high level of <a href="../nondeterminism/">determinism</a>; and</li>
+      <li>specify using <a href="https://github.com/WebAssembly/spec">formal semantics</a>.</li>
+    </ul>
+  </li>
+</ol>
+
+</div>
+      <div class="col-xs-12 col-lg-3">
+        <h6 class="side-title">Documentation</h6>
+        <nav class="side-nav">
+           
+          <a class="side-nav-item" href="/docs/faq/">FAQ</a>
+          
+          <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
+          
+          <a class="side-nav-item" href="/docs/use-cases/">Use Cases</a>
+          
+          <a class="side-nav-item" href="/docs/portability/">Portability</a>
+          
+          <a class="side-nav-item" href="/docs/security/">Security</a>
+          
+          <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
+          
+          <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
+          
+          <a class="side-nav-item" href="/docs/tooling/">Tooling support</a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+

@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes"
+    />
+    <meta property="og:title" content="Use Cases - WebAssembly" />
+    <meta property="og:description" content="WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://webassembly.org/docs/use-cases/" />
+    <meta property="og:image" content="https://v1.screenshot.11ty.dev/https%3A%2F%2Fwebassembly.org%2Fdocs%2Fuse-cases%2F/opengraph/" />
+    <title>Use Cases - WebAssembly</title>
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <noscript id="dark-mode-toggle-stylesheets">
+      <link rel="stylesheet" type="text/css" href="/css/light.css" media="(prefers-color-scheme: light)" />
+      <link rel="stylesheet" type="text/css" href="/css/dark.css" media="(prefers-color-scheme: dark)" />
+      <meta name="color-scheme" content="dark light" />
+    </noscript>
+    <script src="/js/dark-mode-toggle-stylesheets-loader.min.js"></script>
+    <script type="module" src="/js/dark-mode-toggle.min.mjs"></script>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="alternate" type="application/atom+xml" title="WebAssembly News" href="/feed.xml">
+  </head>
+  <body>
+    <header class="page-section">
+      <div class="container-narrow">
+        <a class="site-logo" href="/" title="WebAssembly"></a>
+        <nav class="site-nav">
+          <a class="site-nav-item btn" href="/">Overview</a>
+          <a class="site-nav-item btn" href="/getting-started/developers-guide/"
+            >Getting Started</a
+          >
+          <a class="site-nav-item btn" href="/specs">Specs</a>
+          <a class="site-nav-item btn" href="/docs/faq/">Docs</a>
+          <a class="site-nav-item btn" href="/features/">Feature Status</a>
+          <a class="site-nav-item btn" href="/community/resources/"
+            >Community</a
+          >
+          <a class="site-nav-item btn" href="/news/"
+            >News</a
+          >
+        </nav>
+      </div>
+    </header>
+    
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-lg-9 col-pop"><h1 id="use-cases">Use Cases</h1>
+
+<p>WebAssembly’s <a href="../high-level-goals/">high-level goals</a> define <em>what</em> WebAssembly
+aims to achieve, and in <em>which order</em>. <em>How</em> WebAssembly achieves its goals is
+documented for <a href="../web/">Web</a> and <a href="../non-web/">non-Web</a> platforms. The following
+is an unordered and incomplete list of applications/domains/computations that
+would benefit from WebAssembly and are being considered as use cases during the
+design of WebAssembly.</p>
+
+<h2 id="inside-the-browser">Inside the browser</h2>
+
+<ul>
+  <li>Better execution for languages and toolkits that are currently cross-compiled
+to the Web (C/C++, GWT, …).</li>
+  <li>Image / video editing.</li>
+  <li>Games:
+    <ul>
+      <li>Casual games that need to start quickly.</li>
+      <li>AAA games that have heavy assets.</li>
+      <li>Game portals (mixed-party/origin content).</li>
+    </ul>
+  </li>
+  <li>Peer-to-peer applications (games, collaborative editing, decentralized and
+centralized).</li>
+  <li>Music applications (streaming, caching).</li>
+  <li>Image recognition.</li>
+  <li>Live video augmentation (e.g. putting hats on people’s heads).</li>
+  <li>VR and augmented reality (very low latency).</li>
+  <li>CAD applications.</li>
+  <li>Scientific visualization and simulation.</li>
+  <li>Interactive educational software, and news articles.</li>
+  <li>Platform simulation / emulation (ARC, DOSBox, QEMU, MAME, …).</li>
+  <li>Language interpreters and virtual machines.</li>
+  <li>POSIX user-space environment, allowing porting of existing POSIX applications.</li>
+  <li>Developer tooling (editors, compilers, debuggers, …).</li>
+  <li>Remote desktop.</li>
+  <li>VPN.</li>
+  <li>Encryption.</li>
+  <li>Local web server.</li>
+  <li>Common NPAPI users, within the web’s security model and APIs.</li>
+  <li>Fat client for enterprise applications (e.g. databases).</li>
+</ul>
+
+<h2 id="outside-the-browser">Outside the browser</h2>
+
+<ul>
+  <li>Game distribution service (portable and secure).</li>
+  <li>Server-side compute of untrusted code.</li>
+  <li>Server-side application.</li>
+  <li>Hybrid native apps on mobile devices.</li>
+  <li>Symmetric computations across multiple nodes</li>
+</ul>
+
+<h2 id="how-webassembly-can-be-used">How WebAssembly can be used</h2>
+
+<ul>
+  <li>Entire code base in WebAssembly.</li>
+  <li>Main frame in WebAssembly, but the UI is in JavaScript / HTML.</li>
+  <li>Re-use existing code by targeting WebAssembly, embedded in a larger
+JavaScript / HTML application. This could be anything from simple helper
+libraries, to compute-oriented task offload.</li>
+</ul>
+</div>
+      <div class="col-xs-12 col-lg-3">
+        <h6 class="side-title">Documentation</h6>
+        <nav class="side-nav">
+           
+          <a class="side-nav-item" href="/docs/faq/">FAQ</a>
+          
+          <a class="side-nav-item" href="/docs/high-level-goals/">WebAssembly High-Level Goals</a>
+          
+          <a class="side-nav-item" href="/docs/use-cases/">Use Cases</a>
+          
+          <a class="side-nav-item" href="/docs/portability/">Portability</a>
+          
+          <a class="side-nav-item" href="/docs/security/">Security</a>
+          
+          <a class="side-nav-item" href="/docs/web/">Web Embedding</a>
+          
+          <a class="side-nav-item" href="/docs/non-web/">Non-Web Embeddings</a>
+          
+          <a class="side-nav-item" href="/docs/tooling/">Tooling support</a>
+          
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>
+  <footer class="container">
+    <dark-mode-toggle dark="Light Mode" light="Dark Mode" permanent></dark-mode-toggle>
+  </footer>
+  </body>
+</html>
+
